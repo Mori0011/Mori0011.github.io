@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HFish蜜罐搭建以及自定义 | Camellia's blog</title><meta name="author" content="Camellia"><meta name="copyright" content="Camellia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="搭建HFish蜜罐并自定义蜜罐基本介绍HFish是一款基于Golang开发的跨平台多功能主动诱导型开源国产蜜罐框架系统，它从内网失陷检测、外网威胁感知、威胁情报生产三个场景出发，为用户提供可独立操作且实用的功能，通过安全、敏捷、可靠的中低交互蜜罐增加用户在失陷感知和威胁情报领域的能力，目前HFish具有超过40种蜜罐环境、提供免费的云蜜网、可高度自定义的蜜饵能力、一键部署、跨平台多架构、国产操作系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HFish蜜罐搭建以及自定义">
+<meta property="og:url" content="https://camellia012138.github.io/2024/01/29/HFish/index.html">
+<meta property="og:site_name" content="Camellia&#39;s blog">
+<meta property="og:description" content="搭建HFish蜜罐并自定义蜜罐基本介绍HFish是一款基于Golang开发的跨平台多功能主动诱导型开源国产蜜罐框架系统，它从内网失陷检测、外网威胁感知、威胁情报生产三个场景出发，为用户提供可独立操作且实用的功能，通过安全、敏捷、可靠的中低交互蜜罐增加用户在失陷感知和威胁情报领域的能力，目前HFish具有超过40种蜜罐环境、提供免费的云蜜网、可高度自定义的蜜饵能力、一键部署、跨平台多架构、国产操作系">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://camellia012138.github.io/img/user2.jpg">
+<meta property="article:published_time" content="2024-01-29T03:46:37.000Z">
+<meta property="article:modified_time" content="2024-01-29T08:28:27.745Z">
+<meta property="article:author" content="Camellia">
+<meta property="article:tag" content="蜜罐">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://camellia012138.github.io/img/user2.jpg"><link rel="shortcut icon" href="/img/user2.jpg"><link rel="canonical" href="https://camellia012138.github.io/2024/01/29/HFish/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":100,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Camellia","link":"链接: ","source":"来源: Camellia's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HFish蜜罐搭建以及自定义',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-29 16:28:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/user2.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/top.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Camellia's blog"><span class="site-name">Camellia's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HFish蜜罐搭建以及自定义</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-29T03:46:37.000Z" title="发表于 2024-01-29 11:46:37">2024-01-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-29T08:28:27.745Z" title="更新于 2024-01-29 16:28:27">2024-01-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="HFish蜜罐搭建以及自定义"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="搭建HFish蜜罐并自定义蜜罐"><a href="#搭建HFish蜜罐并自定义蜜罐" class="headerlink" title="搭建HFish蜜罐并自定义蜜罐"></a>搭建HFish蜜罐并自定义蜜罐</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>HFish是一款基于<strong>Golang</strong>开发的跨平台多功能主动诱导型开源国产蜜罐框架系统，它从内网失陷检测、外网威胁感知、威胁情报生产三个场景出发，为用户提供可独立操作且实用的功能，通过安全、敏捷、可靠的中低交互蜜罐增加用户在失陷感知和威胁情报领域的能力，目前<strong>HFish</strong>具有超过40种蜜罐环境、提供免费的云蜜网、可高度自定义的蜜饵能力、一键部署、跨平台多架构、国产操作系统和CPU支持、极低的性能要求、邮件&#x2F;<strong>syslog</strong>&#x2F;<strong>webhook</strong>&#x2F;企业微信&#x2F;钉钉&#x2F;飞书告警等多项特性，帮助用户降低运维成本，提升运营效率</p>
+<h2 id="下载HFish"><a href="#下载HFish" class="headerlink" title="下载HFish"></a>下载HFish</h2><p><a target="_blank" rel="noopener" href="https://hfish.net/#/2-2-linux">Linux管理端下载</a></p>
+<p><a target="_blank" rel="noopener" href="https://hfish.net/#/2-3-windows">Windows管理端下载</a></p>
+<p><a target="_blank" rel="noopener" href="https://hfish.net/#/2-1-docker">Docker镜像下载</a></p>
+<h2 id="HFish架构"><a href="#HFish架构" class="headerlink" title="HFish架构"></a>HFish架构</h2><p>HFish采用B&#x2F;S架构，HFish由管理端（server）和节点端（client）组成，管理端用来生成和管理节点端，并接收、分析和展示节点端回传的数据，节点端接受管理端的控制并负责构建蜜罐服务。</p>
+<p>在HFish中，管理端只用于数据的分析和展示，节点端进行虚拟蜜罐，最后由蜜罐来承受攻击。</p>
+<p>HFish各模块关系图</p>
+<p><img src="/img/image-20240129145223045.png" alt="image-20240129145223045"></p>
+<h2 id="在线Demo"><a href="#在线Demo" class="headerlink" title="在线Demo"></a>在线Demo</h2><p>HFish官方提供了在线Demo以供参考</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">预览地址：https://demo.hfish.net:4433/web/</span><br><span class="line">用户：hfishguest</span><br><span class="line">密码：HFish2021</span><br></pre></td></tr></table></figure>
+
+<p>特别注意：Demo环境提供的是普通用户，有些功能已被隐藏，如需完整体验，请自行安装体验：<a target="_blank" rel="noopener" href="https://hfish.net/#/down">https://hfish.net/#/down</a></p>
+<h2 id="场景建议"><a href="#场景建议" class="headerlink" title="场景建议"></a>场景建议</h2><h3 id="内网失陷感知场景"><a href="#内网失陷感知场景" class="headerlink" title="内网失陷感知场景"></a>内网失陷感知场景</h3><p><img src="/img/image-20240129145640315.png" alt="image-20240129145640315"></p>
+<h3 id="内部人员风险场景"><a href="#内部人员风险场景" class="headerlink" title="内部人员风险场景"></a>内部人员风险场景</h3><p><img src="/img/image-20240129145701707.png" alt="image-20240129145701707"></p>
+<h3 id="外网威胁感知场景"><a href="#外网威胁感知场景" class="headerlink" title="外网威胁感知场景"></a>外网威胁感知场景</h3><p><img src="/img/image-20240129145845004.png" alt="image-20240129145845004"></p>
+<h3 id="外网情报生产场景"><a href="#外网情报生产场景" class="headerlink" title="外网情报生产场景"></a>外网情报生产场景</h3><p><img src="/img/image-20240129145905604.png" alt="image-20240129145905604"></p>
+<h3 id="溯源反制场景"><a href="#溯源反制场景" class="headerlink" title="溯源反制场景"></a>溯源反制场景</h3><p><img src="/img/image-20240129145917402.png" alt="image-20240129145917402"></p>
+<h2 id="文档下载"><a href="#文档下载" class="headerlink" title="文档下载"></a>文档下载</h2><p><a target="_blank" rel="noopener" href="http://hfish.cn-bj.ufileos.com/2022-HFish%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.pdf">HFish部署方案</a></p>
+<p><a target="_blank" rel="noopener" href="http://hfish.cn-bj.ufileos.com/HFish%E5%A4%84%E7%BD%AE%E6%89%8B%E5%86%8C.pdf">HFish处置手册</a></p>
+<h2 id="部署HFish"><a href="#部署HFish" class="headerlink" title="部署HFish"></a>部署HFish</h2><p>这里我个人比较喜欢使用<strong>Docker</strong>来搭建</p>
+<p><strong>Docker</strong>拥有以下特性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">自动升级：每小时请求最新镜像进行升级，升级不会丢失数据。</span><br><span class="line">数据持久化：在宿主机/usr/share/hfish目录下建立data目录用于存放攻击数据，建立logs目录用于存放日志。</span><br></pre></td></tr></table></figure>
+
+<h3 id="确认主机中已经安装并启动docker"><a href="#确认主机中已经安装并启动docker" class="headerlink" title="确认主机中已经安装并启动docker"></a>确认主机中已经安装并启动<strong>docker</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行HFish"><a href="#运行HFish" class="headerlink" title="运行HFish"></a>运行HFish</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name hfish \</span><br><span class="line">-v /usr/share/hfish:/usr/share/hfish \</span><br><span class="line">--network host \</span><br><span class="line">--privileged=<span class="literal">true</span> \</span><br><span class="line">threatbook/hfish-server:latest</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20240129153819327.png" alt="image-20240129153819327"></p>
+<h3 id="配置为后续自动升级"><a href="#配置为后续自动升级" class="headerlink" title="配置为后续自动升级"></a>配置为后续自动升级</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d    \</span><br><span class="line"> --name watchtower \</span><br><span class="line"> --restart unless-stopped \</span><br><span class="line">  -v /var/run/docker.sock:/var/run/docker.sock  \</span><br><span class="line">  --label=com.centurylinklabs.watchtower.enable=<span class="literal">false</span> \</span><br><span class="line">--privileged=<span class="literal">true</span> \</span><br><span class="line">  containrrr/watchtower  \</span><br><span class="line">  --cleanup  \</span><br><span class="line">  hfish \</span><br><span class="line">  --interval 3600</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20240129153912656.png" alt="image-20240129153912656"></p>
+<h3 id="登录HFish"><a href="#登录HFish" class="headerlink" title="登录HFish"></a>登录HFish</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">登陆地址：https://[server]:4433/web/</span><br><span class="line">初始用户名：admin</span><br><span class="line">初始密码：HFish2021</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据库选择"><a href="#数据库选择" class="headerlink" title="数据库选择"></a>数据库选择</h2><p>除非性能极度紧张或环境所限，否则HFish官方强烈建议使用MySQL&#x2F;MariaDB数据库！</p>
+<p>经过实战测评，MySQL&#x2F;MariaDB数据库可以适应目前绝大多数场景，其数据处理和并发兼容能力都要优于SQLite。</p>
+<p>当然仅使用的话也可以使用SQLite</p>
+<h1 id="自定义蜜罐"><a href="#自定义蜜罐" class="headerlink" title="自定义蜜罐"></a>自定义蜜罐</h1><h2 id="下载自定义蜜罐模板"><a href="#下载自定义蜜罐模板" class="headerlink" title="下载自定义蜜罐模板"></a>下载自定义蜜罐模板</h2><p>微步提供了<a target="_blank" rel="noopener" href="https://hfish.net/#/5-1-diy">蜜罐模板</a></p>
+<p><img src="/img/image-20240129154948417.png" alt="image-20240129154948417"></p>
+<h2 id="蜜罐环境"><a href="#蜜罐环境" class="headerlink" title="蜜罐环境"></a>蜜罐环境</h2><p>这里可以选择自定义，自己编写前端界面，但个人推荐使用仿真模拟环境</p>
+<p>通过fofa&#x2F;zoomeye&#x2F;shodan等搜索引擎查询相关资产，找到资产的入口页进行仿真</p>
+<h2 id="编写核心代码"><a href="#编写核心代码" class="headerlink" title="编写核心代码"></a>编写核心代码</h2><p>自定义Web蜜罐其目的主要为了欺骗攻击者视线，让其以为这是个真实的环境从而输入用户名和密码。所以我们自定义的蜜罐须处理的两个点就是界面展示和用户名密码输入框。</p>
+<p>访问原始环境，选择查看网页源代码：</p>
+<p>全选后复制，粘贴到<strong>Demo</strong>中的<strong>html</strong>文件中</p>
+<p><img src="/img/image-20240129155629945.png" alt="image-20240129155629945"></p>
+<p>由于很多资源缺失，导致页面显示不全</p>
+<h2 id="修复显示问题"><a href="#修复显示问题" class="headerlink" title="修复显示问题"></a>修复显示问题</h2><p>在inde.html文件中，找到所有的第三方文件，可选择删除所有的js文件（也可以选择不删除，和接下来的css文件一样下载，确保仿真度较高），对所有的css文件、图片文件按原目录层级下载。</p>
+<p>个人建议是全部下载下来，这样会更加的逼真。</p>
+<p>linux可以使用快捷下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --no-parent http://example.com</span><br></pre></td></tr></table></figure>
+
+<p>但即使是这样有些还是下载不完全的，这个时候就需要一个一个去下载了</p>
+<h2 id="访问仿真环境"><a href="#访问仿真环境" class="headerlink" title="访问仿真环境"></a>访问仿真环境</h2><p>全部准备就绪之后，在根目录起一个python服务，然后访问本地的8000端口查看预览</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m http.server</span><br></pre></td></tr></table></figure>
+
+<h2 id="补全缺失的资源"><a href="#补全缺失的资源" class="headerlink" title="补全缺失的资源"></a>补全缺失的资源</h2><p>可以打开开发者工具点击网络选项，清除后刷新，将红色缺失的部分全部下载到本地，补全缺失的资源</p>
+<p><img src="/img/image-20240129160656182.png" alt="image-20240129160656182"></p>
+<p>这里有一个工具，可以非常方便的让我们制作自定义模板，可以将页面的所有文件一键下载下来</p>
+<p><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/mpiodijhokgodhhofbcjdecpffjipkle">SingleFile</a></p>
+<h2 id="最终调整"><a href="#最终调整" class="headerlink" title="最终调整"></a>最终调整</h2><p>最后就是基于蜜罐的接口完成登录框的改造了，在index.html文件中，找到这个登录的表单（可以通过搜索&lt;form定位）</p>
+<p>根据HFish自定义蜜罐的需求，需要将form表单调整为提交给&#x2F;login接口，包含username和password两个参数：</p>
+<p><img src="/img/image-20240129160809660.png" alt="image-20240129160809660"></p>
+<p>一定确认username和password两个参数在form表单中</p>
+<h2 id="部署自定义蜜罐"><a href="#部署自定义蜜罐" class="headerlink" title="部署自定义蜜罐"></a>部署自定义蜜罐</h2><p>在自定义项目根目录对所有文件进行打包，所有的静态文件文件打包名为“service-xxx.zip”文件，包括index.html 、portrait.js 以及其他所有格式的静态文件和文件夹。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：文件命名为规范格式前缀 **必须** 为“service-”虽然用户可以修改“xxx”为适当的名字，但不能使用“web”和“root”字样，且压缩包 **必须** 为.zip格式。</span><br></pre></td></tr></table></figure>
+
+<p>打包好后，压缩包在HFish的环境管理-服务管理功能点上传自定义蜜罐</p>
+<p><img src="/img/image-20240129161316908.png" alt="image-20240129161316908"></p>
+<p>上传完之后在节点管理将对应的服务添加进去就好了</p>
+<p><img src="/img/image-20240129161511632.png" alt="image-20240129161511632"></p>
+<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><p><a target="_blank" rel="noopener" href="https://hfish.net/#/2-2-linux">Linux管理端下载</a></p>
+<p><a target="_blank" rel="noopener" href="https://hfish.net/#/2-3-windows">Windows管理端下载</a></p>
+<p><a target="_blank" rel="noopener" href="https://hfish.net/#/2-1-docker">Docker镜像下载</a></p>
+<p><a target="_blank" rel="noopener" href="http://hfish.cn-bj.ufileos.com/2022-HFish%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.pdf">HFish部署方案</a></p>
+<p><a target="_blank" rel="noopener" href="http://hfish.cn-bj.ufileos.com/HFish%E5%A4%84%E7%BD%AE%E6%89%8B%E5%86%8C.pdf">HFish处置手册</a></p>
+<p><a target="_blank" rel="noopener" href="https://hfish.net/#/5-1-diy">蜜罐模板</a></p>
+<p><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/mpiodijhokgodhhofbcjdecpffjipkle">SingleFile</a></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://hfish.net/#/README">HFish蜜罐</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/LcJYfEFGVBHOGinD0Jg9eA">HFish蜜罐搭建使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.mrtblogs.net/hfish-custom-pot/">HFish自定义蜜罐开发流程</a></p>
+<p><a target="_blank" rel="noopener" href="https://hfish.net/#/5-1-diy">蜜罐模板</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://camellia012138.github.io">Camellia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://camellia012138.github.io/2024/01/29/HFish/">https://camellia012138.github.io/2024/01/29/HFish/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://camellia012138.github.io" target="_blank">Camellia's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%9C%9C%E7%BD%90/">蜜罐</a></div><div class="post_share"><div class="social-share" data-image="/img/user2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/06/XXE%E6%BC%8F%E6%B4%9E/" title="XXE漏洞学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">XXE漏洞学习</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/24/%E7%99%BB%E5%BD%95%E6%A1%86/" title="对于只有登录框的checklist"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">对于只有登录框的checklist</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/user2.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Camellia</div><div class="author-info__description">嘿，这里是我的博客，命运齿轮开始转动的地方</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">嘿，这里是我的博客，梦开始的地方</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAHFish%E8%9C%9C%E7%BD%90%E5%B9%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E8%9C%9C%E7%BD%90"><span class="toc-number">1.</span> <span class="toc-text">搭建HFish蜜罐并自定义蜜罐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDHFish"><span class="toc-number">1.2.</span> <span class="toc-text">下载HFish</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HFish%E6%9E%B6%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text">HFish架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BFDemo"><span class="toc-number">1.4.</span> <span class="toc-text">在线Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF%E5%BB%BA%E8%AE%AE"><span class="toc-number">1.5.</span> <span class="toc-text">场景建议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E5%A4%B1%E9%99%B7%E6%84%9F%E7%9F%A5%E5%9C%BA%E6%99%AF"><span class="toc-number">1.5.1.</span> <span class="toc-text">内网失陷感知场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E4%BA%BA%E5%91%98%E9%A3%8E%E9%99%A9%E5%9C%BA%E6%99%AF"><span class="toc-number">1.5.2.</span> <span class="toc-text">内部人员风险场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E7%BD%91%E5%A8%81%E8%83%81%E6%84%9F%E7%9F%A5%E5%9C%BA%E6%99%AF"><span class="toc-number">1.5.3.</span> <span class="toc-text">外网威胁感知场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E7%BD%91%E6%83%85%E6%8A%A5%E7%94%9F%E4%BA%A7%E5%9C%BA%E6%99%AF"><span class="toc-number">1.5.4.</span> <span class="toc-text">外网情报生产场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%AF%E6%BA%90%E5%8F%8D%E5%88%B6%E5%9C%BA%E6%99%AF"><span class="toc-number">1.5.5.</span> <span class="toc-text">溯源反制场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.6.</span> <span class="toc-text">文档下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2HFish"><span class="toc-number">1.7.</span> <span class="toc-text">部署HFish</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E4%B8%BB%E6%9C%BA%E4%B8%AD%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E5%B9%B6%E5%90%AF%E5%8A%A8docker"><span class="toc-number">1.7.1.</span> <span class="toc-text">确认主机中已经安装并启动docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8CHFish"><span class="toc-number">1.7.2.</span> <span class="toc-text">运行HFish</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%BA%E5%90%8E%E7%BB%AD%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7"><span class="toc-number">1.7.3.</span> <span class="toc-text">配置为后续自动升级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E5%BD%95HFish"><span class="toc-number">1.7.4.</span> <span class="toc-text">登录HFish</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%80%89%E6%8B%A9"><span class="toc-number">1.8.</span> <span class="toc-text">数据库选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%9C%9C%E7%BD%90"><span class="toc-number">2.</span> <span class="toc-text">自定义蜜罐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E8%87%AA%E5%AE%9A%E4%B9%89%E8%9C%9C%E7%BD%90%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.1.</span> <span class="toc-text">下载自定义蜜罐模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%9C%9C%E7%BD%90%E7%8E%AF%E5%A2%83"><span class="toc-number">2.2.</span> <span class="toc-text">蜜罐环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">编写核心代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98"><span class="toc-number">2.4.</span> <span class="toc-text">修复显示问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">2.5.</span> <span class="toc-text">访问仿真环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%A8%E7%BC%BA%E5%A4%B1%E7%9A%84%E8%B5%84%E6%BA%90"><span class="toc-number">2.6.</span> <span class="toc-text">补全缺失的资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E8%B0%83%E6%95%B4"><span class="toc-number">2.7.</span> <span class="toc-text">最终调整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E8%87%AA%E5%AE%9A%E4%B9%89%E8%9C%9C%E7%BD%90"><span class="toc-number">2.8.</span> <span class="toc-text">部署自定义蜜罐</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B5%84%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">资源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/19/magisk-6/" title="第六课：校验的N次方-签名校验对抗、PM理、IO重定向">第六课：校验的N次方-签名校验对抗、PM理、IO重定向</a><time datetime="2024-11-19T01:57:26.000Z" title="发表于 2024-11-19 09:57:26">2024-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/14/magisk-5/" title="第五课：1000-7=？&amp;动态调试&amp;Log插桩">第五课：1000-7=？&amp;动态调试&amp;Log插桩</a><time datetime="2024-11-14T01:36:26.000Z" title="发表于 2024-11-14 09:36:26">2024-11-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/13/magisk-4/" title="第四课：恭喜你获得广告&amp;弹窗静默卡">第四课：恭喜你获得广告&amp;弹窗静默卡</a><time datetime="2024-11-13T01:36:26.000Z" title="发表于 2024-11-13 09:36:26">2024-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/12/magisk-3/" title="第三课：初识smali，vip终结者">第三课：初识smali，vip终结者</a><time datetime="2024-11-12T01:36:26.000Z" title="发表于 2024-11-12 09:36:26">2024-11-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/11/magisk-2/" title="第二课：初识APK文件结构、双开、汉化、基础修改">第二课：初识APK文件结构、双开、汉化、基础修改</a><time datetime="2024-11-11T01:48:26.000Z" title="发表于 2024-11-11 09:48:26">2024-11-11</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/background2.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Camellia</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">哈喽！欢迎来到我的博客！这里是Camellia！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

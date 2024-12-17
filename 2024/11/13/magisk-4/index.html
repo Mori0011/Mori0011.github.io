@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>第四课：恭喜你获得广告&amp;弹窗静默卡 | Camellia's blog</title><meta name="author" content="Camellia"><meta name="copyright" content="Camellia"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="恭喜你获得广告&amp;弹窗静默卡广告类型 启动广告 弹窗&amp;更新广告 横幅广告  安卓四大组件   组件 描述    Activity(活动) 在应用中的一个Ativity可以用来表示一个界面，意思可以理解为”活动“，即一个活动开始，代表Activity组件启动，活动结束，代表一个Activity的生命周期结束。一个Android应用必须通过Activity来运动和启动，Ativity的生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四课：恭喜你获得广告&amp;弹窗静默卡">
+<meta property="og:url" content="https://camellia012138.github.io/2024/11/13/magisk-4/index.html">
+<meta property="og:site_name" content="Camellia&#39;s blog">
+<meta property="og:description" content="恭喜你获得广告&amp;弹窗静默卡广告类型 启动广告 弹窗&amp;更新广告 横幅广告  安卓四大组件   组件 描述    Activity(活动) 在应用中的一个Ativity可以用来表示一个界面，意思可以理解为”活动“，即一个活动开始，代表Activity组件启动，活动结束，代表一个Activity的生命周期结束。一个Android应用必须通过Activity来运动和启动，Ativity的生">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://camellia012138.github.io/img/user2.jpg">
+<meta property="article:published_time" content="2024-11-13T01:36:26.000Z">
+<meta property="article:modified_time" content="2024-11-19T01:54:31.073Z">
+<meta property="article:author" content="Camellia">
+<meta property="article:tag" content="app">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://camellia012138.github.io/img/user2.jpg"><link rel="shortcut icon" href="/img/user2.jpg"><link rel="canonical" href="https://camellia012138.github.io/2024/11/13/magisk-4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":100,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Camellia","link":"链接: ","source":"来源: Camellia's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '第四课：恭喜你获得广告&弹窗静默卡',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-19 09:54:31'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/user2.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/top.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Camellia's blog"><span class="site-name">Camellia's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第四课：恭喜你获得广告&amp;弹窗静默卡</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-13T01:36:26.000Z" title="发表于 2024-11-13 09:36:26">2024-11-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-19T01:54:31.073Z" title="更新于 2024-11-19 09:54:31">2024-11-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="第四课：恭喜你获得广告&amp;弹窗静默卡"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="恭喜你获得广告-弹窗静默卡"><a href="#恭喜你获得广告-弹窗静默卡" class="headerlink" title="恭喜你获得广告&amp;弹窗静默卡"></a>恭喜你获得广告&amp;弹窗静默卡</h1><h2 id="广告类型"><a href="#广告类型" class="headerlink" title="广告类型"></a>广告类型</h2><ul>
+<li>启动广告</li>
+<li>弹窗&amp;更新广告</li>
+<li>横幅广告</li>
+</ul>
+<h2 id="安卓四大组件"><a href="#安卓四大组件" class="headerlink" title="安卓四大组件"></a>安卓四大组件</h2><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Activity(活动)</td>
+<td>在应用中的一个Ativity可以用来表示一个界面，意思可以理解为”活动“，即一个活动开始，代表Activity组件启动，活动结束，代表一个Activity的生命周期结束。一个Android应用必须通过Activity来运动和启动，Ativity的生命周期交给系统统一管理。</td>
+</tr>
+<tr>
+<td>Service(服务)</td>
+<td>Service它可以在后台执行长时间运行操作而没有用户界面的应用组件，不依赖任何用户界面，例如后台播放音乐，后台下载文件等。</td>
+</tr>
+<tr>
+<td>Broadcast Receiver(广播接收器)</td>
+<td>一个用于接收广播信息，比你高做出对应处理的组件。比如我们常见的广播系统：通知时区改变、电量低、用户改变了语言选项等等。</td>
+</tr>
+<tr>
+<td>Content Provider(内容提供者)</td>
+<td>作为应用程序之间唯一的共享数据的途径，C哦那tentProvider主要的功能就是存储并检索数据以及向其他应用程序提供访问数据的接口。Android内置的许多数据都是在Content Provider形式，供开发者调用的（如视频、音频、图片、通讯录等等）</td>
+</tr>
+</tbody></table>
+<h3 id="activity的切换"><a href="#activity的切换" class="headerlink" title="activity的切换"></a>activity的切换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">        &lt;!---声明实现应用部分可视化界面的 Activity，必须使用 AndroidManifest 中的 &lt;activity&gt; 元素表示所有 Activity。系统不会识别和运行任何未进行声明的Activity。-----&gt;</span><br><span class="line">        &lt;activity  </span><br><span class="line">            android:label=<span class="string">&quot;@string/app_name&quot;</span>  </span><br><span class="line">            android:name=<span class="string">&quot;com.zj.wuaipojie.ui.MainActivity&quot;</span>  </span><br><span class="line">            android:exported=<span class="string">&quot;true&quot;</span>&gt;  &lt;!--当前Activity是否可以被另一个Application的组件启动：<span class="literal">true</span>允许被启动；<span class="literal">false</span>不允许被启动--&gt;</span><br><span class="line">            &lt;!---指明这个activity可以以什么样的意图(intent)启动---&gt;</span><br><span class="line">            &lt;intent-filter&gt;  </span><br><span class="line">                &lt;!--表示activity作为一个什么动作启动，android.intent.action.MAIN表示作为主activity启动---&gt;</span><br><span class="line">                &lt;action  </span><br><span class="line">                    android:name=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;  </span><br><span class="line">                &lt;!--这是action元素的额外类别信息，android.intent.category.LAUNCHER表示这个activity为当前应用程序优先级最高的Activity--&gt;</span><br><span class="line">                &lt;category  </span><br><span class="line">                    android:name=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;  </span><br><span class="line">            &lt;/intent-filter&gt;  </span><br><span class="line">        &lt;/activity&gt;  </span><br><span class="line">        &lt;activity  </span><br><span class="line">            android:name=<span class="string">&quot;com.zj.wuaipojie.ui.ChallengeFirst&quot;</span> /&gt;</span><br><span class="line">        &lt;activity  </span><br><span class="line">            android:name=<span class="string">&quot;com.zj.wuaipojie.ui.ChallengeFifth&quot;</span>  </span><br><span class="line">            android:exported=<span class="string">&quot;true&quot;</span> /&gt;  </span><br><span class="line">        &lt;activity  </span><br><span class="line">            android:name=<span class="string">&quot;com.zj.wuaipojie.ui.ChallengeFourth&quot;</span>  </span><br><span class="line">            android:exported=<span class="string">&quot;true&quot;</span> /&gt;  </span><br><span class="line">        &lt;activity  </span><br><span class="line">            android:name=<span class="string">&quot;com.zj.wuaipojie.ui.ChallengeThird&quot;</span>  </span><br><span class="line">            android:exported=<span class="string">&quot;false&quot;</span> /&gt;  </span><br><span class="line">        &lt;activity  </span><br><span class="line">            android:name=<span class="string">&quot;com.zj.wuaipojie.ui.ChallengeSecond&quot;</span>  </span><br><span class="line">            android:exported=<span class="string">&quot;false&quot;</span> /&gt;  </span><br><span class="line">        &lt;activity  </span><br><span class="line">            android:name=<span class="string">&quot;com.zj.wuaipojie.ui.AdActivity&quot;</span> /&gt; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>启动广告流程：</strong></li>
+</ul>
+<p>启动Activity-&gt;广告Activity-&gt;主页Activity</p>
+<ul>
+<li><strong>修改方法：</strong></li>
+</ul>
+<ol>
+<li>修改加载时间</li>
+<li>Activity切换定位，修改Intent的Activity类名</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">        <span class="keyword">switch</span> (position) &#123;  </span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:  </span><br><span class="line">                <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>();  </span><br><span class="line">                intent.setClass(it.getContext(), ChallengeFirst.class);  </span><br><span class="line">                it.getContext().startActivity(intent);  </span><br><span class="line">                <span class="keyword">return</span>;  </span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:  </span><br><span class="line">                <span class="type">Intent</span> <span class="variable">intent2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>();  </span><br><span class="line">                intent2.setClass(it.getContext(), ChallengeSecond.class);  </span><br><span class="line">                it.getContext().startActivity(intent2);  </span><br><span class="line">                <span class="keyword">return</span>;  </span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:  </span><br><span class="line">                <span class="type">Intent</span> <span class="variable">intent3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>();  <span class="comment">//new一个Intent，</span></span><br><span class="line">                intent3.setClass(it.getContext(), AdActivity.class);  <span class="comment">//传入要切换的Acitivity的类名</span></span><br><span class="line">                it.getContext().startActivity(intent3);  <span class="comment">//启动对应的Activity</span></span><br><span class="line">                <span class="keyword">return</span>;  </span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:  </span><br><span class="line">                <span class="type">Intent</span> <span class="variable">intent4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>();  </span><br><span class="line">                intent4.setClass(it.getContext(), ChallengeFourth.class);  </span><br><span class="line">                it.getContext().startActivity(intent4);  </span><br><span class="line">                <span class="keyword">return</span>; </span><br><span class="line">            <span class="keyword">default</span>:  </span><br><span class="line">                <span class="keyword">return</span>;  </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h2><table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onCreat()</td>
+<td>一个Activity启动后第一个被调用的函数，常用来在此方法中进行Activity的一些初始化操作。例如创建View，绑定数据，注册监听，加载参数等</td>
+</tr>
+<tr>
+<td>onStart()</td>
+<td>当Activiti显示在屏幕上时，此方法被调用但此时还无法进行与用户的交互操作。</td>
+</tr>
+<tr>
+<td>onResume()</td>
+<td>这个方法在onStart()之后调用，也就是在Activity准备好与用户进行交互的时候调用，此时的Activity一定位于Activity栈顶，处于运行状态</td>
+</tr>
+<tr>
+<td>onPause()</td>
+<td>这个方法是在系统准备去启动或者恢复另外一个Activity的时候调用，通常在这个方法中执行一些释放资源的方法，以及保存一些关键数据</td>
+</tr>
+<tr>
+<td>onStop()</td>
+<td>这个方法是在Activity完全不可见的时候调用的</td>
+</tr>
+<tr>
+<td>onDestroy()</td>
+<td>这个方法在Activity销毁之前调用，之后Activity的状态为销毁状态</td>
+</tr>
+<tr>
+<td>onRestart()</td>
+<td>当Activity从停止stop状态恢复进入start状态时调用状态</td>
+</tr>
+</tbody></table>
+<p><img src="/img/image-20241113100418838.png" alt="image-20241113100418838"></p>
+<h2 id="弹窗定位-堆栈分析"><a href="#弹窗定位-堆栈分析" class="headerlink" title="弹窗定位&amp;堆栈分析"></a>弹窗定位&amp;堆栈分析</h2><ul>
+<li><strong>修改方法：</strong></li>
+</ul>
+<ol>
+<li>修改xml中的versicode</li>
+<li>Hook弹窗（推荐算法助手开启弹窗定位）</li>
+<li>修改dex弹窗代码</li>
+<li>抓包修改响应体（也可以路由器拦截）</li>
+</ol>
+<h2 id="布局优化"><a href="#布局优化" class="headerlink" title="布局优化"></a>布局优化</h2><ol>
+<li>开发者助手抓布局</li>
+<li>MT管理器xml搜索定位</li>
+<li>修改xml代码</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:visibility=&quot;gone&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三关"><a href="#第三关" class="headerlink" title="第三关"></a>第三关</h2><h3 id="广告一"><a href="#广告一" class="headerlink" title="广告一"></a>广告一</h3><h4 id="方法一：切换定位法"><a href="#方法一：切换定位法" class="headerlink" title="方法一：切换定位法"></a>方法一：切换定位法</h4><p><img src="/img/image-20241113112333335.png" alt="image-20241113112333335"></p>
+<p>使用MT管理器开启Activity记录，启动服务后可打开对应关卡</p>
+<p><img src="/img/image-20241113112609516.png" alt="image-20241113112609516"></p>
+<p>可以看到该广告的Activity的类名为<strong>com.zj.wuaipojie.ui.AdActivity</strong></p>
+<p>定位到了该类，通过反编译apk文件，全局搜索类<strong>com.zj.wuaipojie.ui.AdActivity</strong></p>
+<p><img src="/img/image-20241113112818739.png" alt="image-20241113112818739"></p>
+<p>可以看到此处的逻辑为等待3000ms后进行跳转，所以将此处的3000ms修改为0ms即可，由于该方法名为loadAd，即在Smali代码中找寻method loadAd()，并将寄存器的值修改为0即可</p>
+<p><img src="/img/image-20241113113344722.png" alt="image-20241113113344722"></p>
+<h4 id="方法二：修改XML"><a href="#方法二：修改XML" class="headerlink" title="方法二：修改XML"></a>方法二：修改XML</h4><p>由于系统不会识别和运行任何未进行声明的Activity，所以只需要在xml文件中，删除或修改广告的Activity即可</p>
+<p>在apk的xml文件中找到主界面所属的类<strong>com.zj.wuaipojie.ui.MainActivity</strong></p>
+<p><img src="/img/image-20241113150757658.png" alt="image-20241113150757658"></p>
+<p>将其替换为<strong>com.zj.wuaipojie.ui.ChallengeThird</strong>，这个时候打开apk时则会直接跳转到第三关</p>
+<p>**P.S.**但这种方法很容易出现各种莫名其妙的bug，所以一般不用</p>
+<h4 id="方法三：定位具体切换位置"><a href="#方法三：定位具体切换位置" class="headerlink" title="方法三：定位具体切换位置"></a>方法三：定位具体切换位置</h4><p>在刚刚的方法一中，找到了该广告的类名为<strong>com.zj.wuaipojie.ui.AdActivity</strong>，使用MT管理器进行全局搜索，找到该类别后，复制它的smali代码</p>
+<p><img src="/img/image-20241113151531723.png" alt="image-20241113151531723"></p>
+<p>并重新搜索该代码，最终找到了另一个类中，存在调用该Activity</p>
+<p><img src="/img/image-20241113151645307.png" alt="image-20241113151645307"></p>
+<p>将其反编译为java代码后进行代码分析</p>
+<p><img src="/img/image-20241113152047397.png" alt="image-20241113152047397"></p>
+<p>这里可以看到这段代码表示这里通过判断adapterPosition的值来实现加载Activity，我们可以直接将值&#x3D;2时要加载的AdActivity.class类替换为ChallengeThird.class类即可</p>
+<p><img src="/img/image-20241113152351394.png" alt="image-20241113152351394"></p>
+<p>在smali代码中的体现如上图所示</p>
+<h3 id="广告二："><a href="#广告二：" class="headerlink" title="广告二："></a>广告二：</h3><h4 id="方法一：通过修改xml中的versicode"><a href="#方法一：通过修改xml中的versicode" class="headerlink" title="方法一：通过修改xml中的versicode"></a>方法一：通过修改xml中的versicode</h4><p>将xml文件中versicode的值由1修改为2</p>
+<p><img src="/img/image-20241113162044677.png" alt="image-20241113162044677"></p>
+<h3 id="广告三："><a href="#广告三：" class="headerlink" title="广告三："></a>广告三：</h3><h4 id="方法一：Hook弹窗（使用算法助手开启弹窗定位）"><a href="#方法一：Hook弹窗（使用算法助手开启弹窗定位）" class="headerlink" title="方法一：Hook弹窗（使用算法助手开启弹窗定位）"></a>方法一：Hook弹窗（使用算法助手开启弹窗定位）</h4><p>安装好算法助手后，通过LSPosed框架，打开算法助手模块，将所需要Hook的软件勾选上</p>
+<p><img src="/img/image-20241113163251382.png" alt="image-20241113163251382"></p>
+<p>在算法助手中将所需要的Hook的软件总开关打开</p>
+<p><img src="/img/image-20241113162303786.png" alt="image-20241113162303786"></p>
+<p>点击进入要Hook的软件，在UI界面将弹窗定位选项勾选上即可</p>
+<p><img src="/img/image-20241113163340986.png" alt="image-20241113163340986"></p>
+<h4 id="方法二：屏蔽关键词"><a href="#方法二：屏蔽关键词" class="headerlink" title="方法二：屏蔽关键词"></a>方法二：屏蔽关键词</h4><p><img src="/img/image-20241113163457930.png" alt="image-20241113163457930"></p>
+<h4 id="方法三：修改dex弹窗代码"><a href="#方法三：修改dex弹窗代码" class="headerlink" title="方法三：修改dex弹窗代码"></a>方法三：修改dex弹窗代码</h4><p><img src="/img/image-20241113164001699.png" alt="image-20241113164001699"></p>
+<p>通过算法助手的日志分析功能，可以看到调用堆栈的具体情况，将类方法<strong>com.zj.wuaipojie.ui.ChallengeThird.onCreate</strong>在apk中进行搜索</p>
+<p><img src="/img/image-20241113164419004.png" alt="image-20241113164419004"></p>
+<p>找到show这个方法，可以直接将该show代码进行注释掉，广告二同理（同为弹窗类广告）</p>
+<h3 id="广告四："><a href="#广告四：" class="headerlink" title="广告四："></a>广告四：</h3><h4 id="方法一：将宽高修改为0"><a href="#方法一：将宽高修改为0" class="headerlink" title="方法一：将宽高修改为0"></a>方法一：将宽高修改为0</h4><p>使用开发助手进行布局查看</p>
+<p><img src="/img/image-20241113165428499.png" alt="image-20241113165428499"></p>
+<p>可以看到该布局为广告图片，点击进入后复制View id（Hex）</p>
+<p><img src="/img/image-20241113165533319.png" alt="image-20241113165533319"></p>
+<p>复制后进入MT管理器进行XML搜索（十六进制）</p>
+<p> <img src="/img/image-20241113170101247.png" alt="image-20241113170101247"></p>
+<p>定位到目标XML，并将目标广告的宽高修改为0</p>
+<p><img src="/img/image-20241113170313595.png" alt="image-20241113170313595"></p>
+<h4 id="方法二：隐藏布局"><a href="#方法二：隐藏布局" class="headerlink" title="方法二：隐藏布局"></a>方法二：隐藏布局</h4><p>使用代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:visibility=&quot;gone&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/image-20241113170521573.png" alt="image-20241113170521573"></p>
+<p>这里看到所有广告都被清除掉啦</p>
+<p><img src="/img/image-20241113170617140.png" alt="image-20241113170617140"></p>
+<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><p><img src="/img/image-20241113170800427.png" alt="image-20241113170800427"></p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>这里可以看到是一个弹窗广告尝试使用返回键，无果，使用算法助手Hook该弹窗</p>
+<p><img src="/img/image-20241113171027478.png" alt="image-20241113171027478"></p>
+<p>成功去除</p>
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>使用算法助手进行关键词屏蔽（弹窗）</p>
+<h3 id="方法三："><a href="#方法三：" class="headerlink" title="方法三："></a>方法三：</h3><p><img src="/img/image-20241113171133263.png" alt="image-20241113171133263"></p>
+<p>在算法助手的日志中找到堆栈信息，在dex中进行全局搜索</p>
+<p><img src="/img/image-20241113171241440.png" alt="image-20241113171241440"></p>
+<p>但是点击进去发现这个是主界面的Activiy方法，并不是弹窗的（弹窗的应该是这个方法上面的”<strong>np.֏.ށ</strong>“方法）</p>
+<p><img src="/img/image-20241114151946821.png" alt="image-20241114151946821"></p>
+<p>也可以选择全局搜索字符串“<strong>定位这个弹窗并去除哦</strong>”</p>
+<p><img src="/img/image-20241114100929274.png" alt="image-20241114100929274"></p>
+<p>点击进去后发现三处show的弹窗位置，并将其都注释掉即可</p>
+<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><p><a target="_blank" rel="noopener" href="https://www.ldmnq.com/">雷电模拟器</a></p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1cFWTLn14jeWfpXxlx3syYw?pwd=nqu9">百度云</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/TJoKMK6du6x">阿里云</a></p>
+<p><a target="_blank" rel="noopener" href="https://wwl.lanzoub.com/iVKJk0f0pi7g">第四课作业</a></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G8411e7HT?spm_id_from=333.788.videopod.sections&vd_source=82336cba3c576b55e0af7abb7afbb0da">吾爱破解安卓逆向入门教程《安卓逆向这档事》三、初识smali，vip终结者</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Kb8DbEXcthvRfakBRRXHTg">《安卓逆向这档事》三、初识smali，vip终结者</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://camellia012138.github.io">Camellia</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://camellia012138.github.io/2024/11/13/magisk-4/">https://camellia012138.github.io/2024/11/13/magisk-4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://camellia012138.github.io" target="_blank">Camellia's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/app/">app</a></div><div class="post_share"><div class="social-share" data-image="/img/user2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/11/14/magisk-5/" title="第五课：1000-7=？&amp;动态调试&amp;Log插桩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第五课：1000-7=？&amp;动态调试&amp;Log插桩</div></div></a></div><div class="next-post pull-right"><a href="/2024/11/12/magisk-3/" title="第三课：初识smali，vip终结者"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第三课：初识smali，vip终结者</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/11/12/magisk-3/" title="第三课：初识smali，vip终结者"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-12</div><div class="title">第三课：初识smali，vip终结者</div></div></a></div><div><a href="/2024/11/11/magisk-2/" title="第二课：初识APK文件结构、双开、汉化、基础修改"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-11</div><div class="title">第二课：初识APK文件结构、双开、汉化、基础修改</div></div></a></div><div><a href="/2024/11/14/magisk-5/" title="第五课：1000-7&#x3D;？&amp;动态调试&amp;Log插桩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-14</div><div class="title">第五课：1000-7&#x3D;？&amp;动态调试&amp;Log插桩</div></div></a></div><div><a href="/2023/10/30/magisk/" title="第一课：雷电模拟器刷Magisk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-30</div><div class="title">第一课：雷电模拟器刷Magisk</div></div></a></div><div><a href="/2024/11/19/magisk-6/" title="第六课：校验的N次方-签名校验对抗、PM理、IO重定向"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-19</div><div class="title">第六课：校验的N次方-签名校验对抗、PM理、IO重定向</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/user2.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Camellia</div><div class="author-info__description">嘿，这里是我的博客，命运齿轮开始转动的地方</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">嘿，这里是我的博客，梦开始的地方</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%81%AD%E5%96%9C%E4%BD%A0%E8%8E%B7%E5%BE%97%E5%B9%BF%E5%91%8A-%E5%BC%B9%E7%AA%97%E9%9D%99%E9%BB%98%E5%8D%A1"><span class="toc-number">1.</span> <span class="toc-text">恭喜你获得广告&amp;弹窗静默卡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E5%91%8A%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">广告类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">安卓四大组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#activity%E7%9A%84%E5%88%87%E6%8D%A2"><span class="toc-number">1.2.1.</span> <span class="toc-text">activity的切换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.3.</span> <span class="toc-text">Activity生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D-%E5%A0%86%E6%A0%88%E5%88%86%E6%9E%90"><span class="toc-number">1.4.</span> <span class="toc-text">弹窗定位&amp;堆栈分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B1%80%E4%BC%98%E5%8C%96"><span class="toc-number">1.5.</span> <span class="toc-text">布局优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3"><span class="toc-number">1.6.</span> <span class="toc-text">第三关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%91%8A%E4%B8%80"><span class="toc-number">1.6.1.</span> <span class="toc-text">广告一</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%88%87%E6%8D%A2%E5%AE%9A%E4%BD%8D%E6%B3%95"><span class="toc-number">1.6.1.1.</span> <span class="toc-text">方法一：切换定位法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BF%AE%E6%94%B9XML"><span class="toc-number">1.6.1.2.</span> <span class="toc-text">方法二：修改XML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E5%AE%9A%E4%BD%8D%E5%85%B7%E4%BD%93%E5%88%87%E6%8D%A2%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.6.1.3.</span> <span class="toc-text">方法三：定位具体切换位置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%91%8A%E4%BA%8C%EF%BC%9A"><span class="toc-number">1.6.2.</span> <span class="toc-text">广告二：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E9%80%9A%E8%BF%87%E4%BF%AE%E6%94%B9xml%E4%B8%AD%E7%9A%84versicode"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">方法一：通过修改xml中的versicode</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%91%8A%E4%B8%89%EF%BC%9A"><span class="toc-number">1.6.3.</span> <span class="toc-text">广告三：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9AHook%E5%BC%B9%E7%AA%97%EF%BC%88%E4%BD%BF%E7%94%A8%E7%AE%97%E6%B3%95%E5%8A%A9%E6%89%8B%E5%BC%80%E5%90%AF%E5%BC%B9%E7%AA%97%E5%AE%9A%E4%BD%8D%EF%BC%89"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">方法一：Hook弹窗（使用算法助手开启弹窗定位）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%B1%8F%E8%94%BD%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">方法二：屏蔽关键词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E4%BF%AE%E6%94%B9dex%E5%BC%B9%E7%AA%97%E4%BB%A3%E7%A0%81"><span class="toc-number">1.6.3.3.</span> <span class="toc-text">方法三：修改dex弹窗代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%91%8A%E5%9B%9B%EF%BC%9A"><span class="toc-number">1.6.4.</span> <span class="toc-text">广告四：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%B0%86%E5%AE%BD%E9%AB%98%E4%BF%AE%E6%94%B9%E4%B8%BA0"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">方法一：将宽高修改为0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E9%9A%90%E8%97%8F%E5%B8%83%E5%B1%80"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">方法二：隐藏布局</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-number">1.7.</span> <span class="toc-text">作业</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="toc-number">1.7.1.</span> <span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A"><span class="toc-number">1.7.2.</span> <span class="toc-text">方法二：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A"><span class="toc-number">1.7.3.</span> <span class="toc-text">方法三：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B5%84%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">资源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/19/magisk-6/" title="第六课：校验的N次方-签名校验对抗、PM理、IO重定向">第六课：校验的N次方-签名校验对抗、PM理、IO重定向</a><time datetime="2024-11-19T01:57:26.000Z" title="发表于 2024-11-19 09:57:26">2024-11-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/14/magisk-5/" title="第五课：1000-7=？&amp;动态调试&amp;Log插桩">第五课：1000-7=？&amp;动态调试&amp;Log插桩</a><time datetime="2024-11-14T01:36:26.000Z" title="发表于 2024-11-14 09:36:26">2024-11-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/13/magisk-4/" title="第四课：恭喜你获得广告&amp;弹窗静默卡">第四课：恭喜你获得广告&amp;弹窗静默卡</a><time datetime="2024-11-13T01:36:26.000Z" title="发表于 2024-11-13 09:36:26">2024-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/12/magisk-3/" title="第三课：初识smali，vip终结者">第三课：初识smali，vip终结者</a><time datetime="2024-11-12T01:36:26.000Z" title="发表于 2024-11-12 09:36:26">2024-11-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/11/magisk-2/" title="第二课：初识APK文件结构、双开、汉化、基础修改">第二课：初识APK文件结构、双开、汉化、基础修改</a><time datetime="2024-11-11T01:48:26.000Z" title="发表于 2024-11-11 09:48:26">2024-11-11</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/background2.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Camellia</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">哈喽！欢迎来到我的博客！这里是Camellia！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
